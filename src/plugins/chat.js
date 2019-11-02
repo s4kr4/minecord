@@ -14,6 +14,6 @@ export default Plugin => new Plugin({
     if (!/^Async\sChat\sThread/.test(causedAt)) return
 
     const newMessage = replacers.replace(message)
-    if (newMessage !== false) await sendToDiscord(newMessage)
+    if (newMessage !== false) await sendToDiscord(newMessage.replace('\u001b[m', ''))
   }
 })
