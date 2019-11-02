@@ -11,7 +11,7 @@ export default Plugin => new Plugin({
     })}`)
   },
   async minecraft ({causedAt, level, message, sendToDiscord}) {
-    if (causedAt !== 'Server thread' || level !== 'INFO') return
+    if (!/^Async\sChat\sThread/.test(causedAt)) return
 
     const newMessage = replacers.replace(message)
     if (newMessage !== false) await sendToDiscord(newMessage)
