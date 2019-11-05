@@ -1,8 +1,8 @@
 import Replacers from '../Replacers'
 
 const replacers = (new Replacers)
-  .add(/^(.*)\sjoined\sthe\sgame$/, (message, player) => `${player} がログインしたみたい。`)
-  .add(/^(.*)\sleft\sthe\sgame$/, (message, player) => `${player} がログアウトしたみたい。`)
+  .add(/^(.*)\[.*]\slogged\sin\swith.*$/, (message, player) => `**${player}** がログインしたよ`)
+  .add(/^(.*)\sleft\sthe\sgame$/, (message, player) => `**${player}**  がログアウトしたよ`)
 
 export default Plugin => new Plugin({
   async minecraft ({causedAt, level, message, sendToDiscord}) {
