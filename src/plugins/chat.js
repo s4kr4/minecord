@@ -6,7 +6,6 @@ const replacers = (new Replacers)
 
 const generateMessage = (message) => {
 
-  console.dir(message.attachments.size)
   if (message.attachments.size > 0) {
     return {
       text: `[Discord] ${message.member && message.member.nickname || message.author.username}> が画像を送信しました`,
